@@ -1,0 +1,21 @@
+{
+  "name": "Light Box",
+  "device_id": "lightbox_01",
+  "device_stats_interval": 10,
+  "wifi": {
+    "ssid": "wifi",
+    "password": "pass"
+  },
+  "mqtt": {
+    "host": "192.168.0.100",
+    "port": 1883,
+    "base_topic": "devices/",
+    "auth": false
+  },
+  "ota": {
+    "enabled": true
+  },
+  "settings": {
+    "percentage": 55
+  }
+}
