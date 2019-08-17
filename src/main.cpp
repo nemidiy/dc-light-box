@@ -25,10 +25,6 @@ void setup(){
     light_controller.add_channel(D1, D5, "whites");
 
     Homie.setup();
-
-    WiFi.begin(
-        HomieInternals::Interface::get().getConfig().get().wifi.ssid,
-        HomieInternals::Interface::get().getConfig().get().wifi.password);
 }
 
 bool high = true;
