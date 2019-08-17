@@ -90,9 +90,13 @@ bool LightController::add_channel(
         return true;
     };
 
-    auto sunrise_handler = [conf, this, light_node](
+    auto sunrise_handler = [name, conf, this, light_node](
             const HomieRange& range, const String& value) -> bool{
         Serial.println("sunrise handler");
+        Serial.print(name.c_str());
+        Serial.print(" - ");
+        Serial.println(value.toInt());
+        this->sunrise_channel(value.toInt(), name);
         return true;
     };
 
@@ -140,6 +144,8 @@ void LightController::loop(){
     for(auto& kv: channels){
         if(kv.second->sunsetting){
             sunset(kv.second);
+        }else if(kv.second->sunrising){
+            sunrise(kv.second);
         }
     }
 }
@@ -173,5 +179,38 @@ void LightController::sunset(channel_config* conf){
     unsigned long int dimming_units = millis_in_sunset / conf->millis_per_dimming_unit;
 
     conf->dim_value = conf->dimming_offset + dimming_units;
+    analogWrite(conf->dimming_pin, conf->dim_value);
+}
+
+void LightController::sunrise_channel(
+            int total_seconds,
+            const std::string& name){
+    if(channels[name]->on)
+        false;
+    channels[name]->sunsetting = false;
+    channels[name]->sunrising = true;
+    channels[name]->millis = total_seconds * 1000;
+    channels[name]->start = millis();
+    channels[name]->dimming_offset = channels[name]->dim_value;
+    int dimming_units = 1024 - channels[name]->dim_value;
+    channels[name]->millis_per_dimming_unit = channels[name]->millis / dimming_units;
+    channels[name]->on = true;
+    channels[name]->dim_value = 1023;
+    analogWrite(channels[name]->dimming_pin, channels[name]->dim_value);
+    digitalWrite(channels[name]->relay_pin, HIGH);
+}
+
+void LightController::sunrise(channel_config* conf){
+
+    if(conf->dimming_offset == conf->dim_value){
+        conf->sunrising = false;
+        return;
+    }
+
+    // get the second we are standing on in the sunset
+    unsigned long int  millis_in_sunset =  millis() - conf->start;
+    unsigned long int dimming_units = millis_in_sunset / conf->millis_per_dimming_unit;
+
+    conf->dim_value = 1024 - dimming_units;
     analogWrite(conf->dimming_pin, conf->dim_value);
 }

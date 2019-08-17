@@ -30,6 +30,10 @@ struct LightController {
         int total_seconds,
         const std::string& name);
 
+    void sunrise_channel(
+        int total_seconds,
+        const std::string& name);
+
     void loop();
 
 protected :
@@ -54,6 +58,8 @@ protected :
     unsigned long int  INTERVAL = 10;
 
     void sunset(channel_config* conf);
+
+    void sunrise(channel_config* conf);
 };
 
 } //namespace utils
