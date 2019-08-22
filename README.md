@@ -328,6 +328,9 @@ void loop(){
 
 # Controler board
 
+### BOM
+[BOM](https://github.com/nemiliani/dc-light-box/blob/develop/doc/BOM.xlsx)
+
 ### Diagram
 ![diagram](https://github.com/nemiliani/dc-light-box/blob/develop/doc/dc-light-box_bb.png "Diagram")
 
