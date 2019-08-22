@@ -4,6 +4,8 @@ Light box is an IOT controller for ESP8266 based on the [Homie](https://homieiot
 # Disclaimer
 * Basic c++ coding knowledge is assumed
 * The instructions assume you are using some Linux flavor, if using Windows or CrApple some things may not apply.
+* Basic knowledge of wiring
+* Electrocution hazzard, be smart and stay off if this is too much for you :)
 
 # Features
 * ON/OFF
@@ -324,10 +326,16 @@ void loop(){
 }
 ```
 
-# TODO
+# Controler board
 
+### Diagram
+![diagram](https://github.com/nemiliani/dc-light-box/blob/develop/doc/dc-light-box_bb.png "Diagram")
+
+
+# TODO
 * Unit test
 * Hooking up some CI tool to run unit tests when commiting
 * Captive site to avoid the curl stuff
 * OTA documentation
 * MQTT auto discovery documentation
+* BOM
