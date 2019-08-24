@@ -1,5 +1,9 @@
 # Light Box
-Light box is an IOT controller for ESP8266 based on the [Homie](https://homieiot.github.io/) standard for MQTT and the [Homie Lib for ESP8266](https://github.com/homieiot/homie-esp8266) firmware.
+Light box is a grow light IoT controller for  ESP8266 based on the [Homie](https://homieiot.github.io/) standard for MQTT and the [Homie Lib for ESP8266](https://github.com/homieiot/homie-esp8266) firmware.
+
+# References
+For a comprenhensive guide on how to build a DIY grow light I recommend the following 6 video series from growmau5
+* https://www.youtube.com/watch?v=UlM5uvO7sao&t=3s
 
 # Disclaimer
 * Basic c++ coding knowledge is assumed
@@ -328,12 +332,15 @@ void loop(){
 
 # Controler board
 
-### BOM
+### BOM for the controller board and grow light
 [BOM](https://github.com/nemiliani/dc-light-box/blob/develop/doc/BOM.xlsx)
 
 ### Diagram
 ![diagram](https://github.com/nemiliani/dc-light-box/blob/develop/doc/dc-light-box_bb.png "Diagram")
 
+# Grow light build
+![front](https://github.com/nemiliani/dc-light-box/blob/develop/doc/lights1.jpeg "Rig")
+![back](https://github.com/nemiliani/dc-light-box/blob/develop/doc/lights2.jpeg "Rig")
 
 # TODO
 * Unit test
