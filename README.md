@@ -26,7 +26,7 @@ For a comprenhensive guide on how to build a DIY grow light I recommend the foll
 First clone the the repo somewhere in your computer:
 
 ```
-$ git clone https://github.com/nemiliani/dc-light-box.git
+$ git clone https://github.com/nemidiy/dc-light-box.git
 $ cd dc-light-box
 $ git checkout develop
 ```
