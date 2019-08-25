@@ -21,6 +21,10 @@ For a comprenhensive guide on how to build a DIY grow light I recommend the foll
 * python-virtualenv : used to create a virtual env that will contain platform.io
 * cURL
 
+# YouTube build tutorial
+[![build tutorial](http://img.youtube.com/vi/mufOFeH8BOo/0.jpg)](https://youtu.be/mufOFeH8BOo)
+
+
 # Downloading and building the code
 
 First clone the the repo somewhere in your computer:
